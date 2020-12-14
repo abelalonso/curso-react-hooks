@@ -1,43 +1,40 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import React, { useState } from 'react';
+import { Container, Card, Grid, Typography, TextField, Button } from '@material-ui/core';
 
-import { getDemoRequest } from '../../redux/actions/demoActions';
+import styles from './styles'
 
-import User from '../../components/User';
+export default () => {
+  const [searchText, setsearchText] = useState ('')
+  const classes = styles();
+  const handleSearchTextChange = (event) => {
+    setsearchText(event.targetvalue)
+  }
 
-class Home extends Component {
-	componentWillMount() {
-		this.props.getDemoRequest('hey');
-	}
-	render() {
-		const { users } = this.props;
+  const handleCleanTextClick = (event) => {}
+  const handleSearchTextClick = (event) => {}
 
-		let items = [];
-		if (typeof users !== 'undefined') {
-			items = users.map((value, index) => {
-				return <User key={index} {...value} />;
-			});
-		}
-		return <div>{items}</div>;
-	}
+  return (
+    <Container className={classes.container}>
+      <Card className={classes.cardContainer}>
+        <Grid container className={classes.titleGridContainer}>
+          <Grid>
+            <Typography className={classes.title}>Bienvenido!</Typography>
+          </Grid>
+          <Grid>
+            <label>Icono</label>
+          </Grid>
+        </Grid>
+        <TextField
+          value={searchText}
+          className={classes.texfieldSearch}
+          placeholder="Buscar..."
+          onChange={handleSearchTextChange}
+        ></TextField>
+        <Grid className={classes.buttonsContainer}>
+          <Button variant="contained" onClick={handleCleanTextClick}>Limpiar</Button>
+          <Button variant="contained" className={classes.searchButton} color="primary" size="large" onClick={handleSearchTextClick}>Buscar</Button>
+        </Grid>
+      </Card>
+    </Container>
+  )
 }
-
-const mapDispatchToProps = (dispatch, props) => {
-	return {
-		getDemoRequest: payload => {
-			dispatch(getDemoRequest(payload));
-		}
-	};
-};
-const mapStateToProps = state => {
-	return {
-		users: state.demoReducer[0]
-	};
-};
-
-Home.propTypes = {
-	dispatch: PropTypes.func
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
