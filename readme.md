@@ -94,7 +94,6 @@ Declaramos las constantes para las funciones de los botones que definiremos más
 
 Añadimos las clases necesarias a los elementos del template que lo necesitan:
 ~~~
-  return (
     <Container className={classes.container}>
       <Card className={classes.cardContainer}>
         <Grid container className={classes.titleGridContainer}>
@@ -112,12 +111,20 @@ Añadimos las clases necesarias a los elementos del template que lo necesitan:
           onChange={handleSearchTextChange}
         ></TextField>
         <Grid className={classes.buttonsContainer}>
-          <Button variant="contained" onClick={handleCleanTextClick}>Limpiar</Button>
-          <Button variant="contained" className={classes.searchButton} color="primary" size="large" onClick={handleSearchTextClick}>Buscar</Button>
+          <Button
+            variant="contained"
+            onClick={handleCleanTextClick}
+          >Limpiar</Button>
+          <Button
+            variant="contained"
+            className={classes.searchButton}
+            color="primary"
+            size="large"
+            onClick={handleSearchTextClick}
+          >Buscar</Button>
         </Grid>
       </Card>
     </Container>
-  )
 ~~~
 
 Creamos un nuevo archivo que contendrá los estilos de Home Component: *styles.js*.

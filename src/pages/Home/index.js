@@ -31,8 +31,17 @@ export default () => {
           onChange={handleSearchTextChange}
         ></TextField>
         <Grid className={classes.buttonsContainer}>
-          <Button variant="contained" onClick={handleCleanTextClick}>Limpiar</Button>
-          <Button variant="contained" className={classes.searchButton} color="primary" size="large" onClick={handleSearchTextClick}>Buscar</Button>
+          <Button
+            variant="contained"
+            onClick={handleCleanTextClick}
+          >Limpiar</Button>
+          <Button
+            variant="contained"
+            className={classes.searchButton}
+            color="primary"
+            size="large"
+            onClick={handleSearchTextClick}
+          >Buscar</Button>
         </Grid>
       </Card>
     </Container>
