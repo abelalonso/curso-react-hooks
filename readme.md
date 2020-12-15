@@ -181,3 +181,38 @@ export default () => {
 
 ...
 ~~~
+
+### Icono de Material UI
+
+Instalamos la librería de iconos
+
+```npm install @material-ui/icons```
+
+Y cargamos el icono el el lugar correspondiente:
+~~~
+...
+
+import MovieIcon from '@material-ui/icons/Movie';
+
+...
+
+...
+
+  <Grid>
+    <MovieIcon className={classes.movieIcon}/>
+  </Grid>
+
+...
+~~~
+
+Le hemos aplicado una clase que configuramos en el archivo *styles.js*
+
+~~~
+...
+
+  movieIcon: {
+    fontSize: '4rem'
+  }
+
+...
+~~~
